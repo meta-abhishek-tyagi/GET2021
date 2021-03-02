@@ -1,0 +1,73 @@
+import java.util.*;
+class StringOperations{
+	
+      public static int compare(String string1, String string2){
+      	int i=0;
+      	if(string1.length()!=string2.length())
+      	  return 0;
+      	for(i=0;i<string1.length();i++){
+      		if(string1.charAt(i)!=string2.charAt(i))
+      		    return 0;
+      	}
+      	return 1;
+	  }
+	  
+	  public static String reverse(String string1){
+		char[] reverseString=new char[string1.length()];
+		int k=0;
+		for(int i=string1.length()-1;i>=0;i--){
+			reverseString[k++]=string1.charAt(i);
+		}
+		return new String(reverseString);
+	  }
+	  
+	  public static String replace(String s){
+	  	String resultString="";
+	  	for(int i=0;i<s.length();i++){
+	  		if(s.charAt(i)>='a' && s.charAt(i)<='z' && s.charAt(i)!=' '){
+	  		   
+	  		   resultString=resultString + (char)((int)s.charAt(i)-32);
+	  		}
+	  		else if(s.charAt(i)==' '){
+	  			resultString=resultString+" ";
+	  		}
+	  		else{
+	  		   resultString=resultString + (char)((int)s.charAt(i)+32);
+	  		}  
+	  	}
+		return resultString;
+	  }
+	  
+	  public static String largestWord(String s){
+	     ArrayList<String> words=new ArrayList<>();
+	     String word="";
+	     for(int i=0;i<s.length();i++){
+	     	if(s.charAt(i)!=' ')
+	     	    word+=s.charAt(i);
+	     	else{
+	     	    words.add(word);
+	     	    word=""; 
+	     	}
+	     }
+	     String large=words.get(0);
+	     for(int i=0;i<words.size();i++){
+	     	if(large.length()<words.get(i).length()){
+	     		large=words.get(i);
+	     	}
+	     }
+	     return large;
+	  }
+	  
+	  public static void main(String args[]){
+		 Scanner sc=new Scanner(System.in);
+			System.out.println("Enter two Strings");
+			String string1=sc.nextLine();
+			String string2=sc.nextLine();
+		    System.out.println("Comparison of two strings : "+compare(string1,string2));
+		    System.out.println("Reverse of first String : "+reverse(string1));
+		    System.out.println("Enter String :");
+		    String s=sc.nextLine();
+		    System.out.println("String after replacing lowercase to upercase and vice-versa : "+replace(s));
+		    System.out.println("Largest word in above string is : "+largestWord(s));
+	}
+}
