@@ -1,0 +1,55 @@
+import java.util.*;
+class Marksheet{
+	
+      public static float average(int grades[]){
+		int total=0;
+		for(int i=0;i<grades.length;i++){
+			total+=grades[i];
+		}
+		return total/(float)grades.length;
+	  }
+	  
+	  public static int maximum(int grades[]){
+		return grades[grades.length-1];
+	  }
+	  
+	  public static int minimum(int grades[]){
+		return grades[0];
+	  }
+	  
+	  public static float percentagePassed(int grades[]){
+	  	int count=0;
+	  	for(int i=0;i<grades.length;i++){
+	  		if(grades[i]>=40){
+	  			count++;
+	  		}
+	  	}
+	  	return (count/(float)grades.length)*100;
+	  }
+	  
+	  public static void main(String args[]){
+		    Scanner sc=new Scanner(System.in);
+			System.out.println("Enter no. of students :");
+			int noOfStudents=sc.nextInt();
+			int grades[]=new int[noOfStudents];
+			System.out.println("[Grades must be in range 0 to 100]");
+		    for(int i=0;i<noOfStudents;i++){
+		      System.out.print("Enter student "+(i+1)+" grade : ");
+			  int grade=sc.nextInt();
+			  if(grade>100 || grade<0){
+			  	 System.out.println("Invalid grade!! Re-enter");
+			  	 i=i-1;
+			  	 continue;
+			  }
+			  grades[i]=grade;
+		    }
+		    Arrays.sort(grades);
+		    System.out.print("Average Of all grades : ");
+		    System.out.printf("%.2f \n", average(grades));
+		    System.out.println("Maximum Of all grades : " + maximum(grades));
+		    System.out.println("Minimum Of all grades : " + minimum(grades));
+		    System.out.print("Percentage Of students passed : ");
+		    System.out.printf("%.2f ",percentagePassed(grades));
+		    System.out.print("%");
+	}
+}
