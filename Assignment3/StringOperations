@@ -39,6 +39,7 @@ class StringOperations{
 	  
       //Find the largest word in the given string	  
       public static String largestWord(String s){
+        s+=" ";
 	ArrayList<String> words=new ArrayList<>();
 	String word="";
 	for(int i=0;i<s.length();i++){
@@ -51,7 +52,7 @@ class StringOperations{
 	}
 	String large=words.get(0);
 	for(int i=1;i<words.size();i++){
-	  if(large.length()<words.get(i).length()){
+	  if(large.length()<=words.get(i).length()){
 	    large=words.get(i);
 	  }
 	}
