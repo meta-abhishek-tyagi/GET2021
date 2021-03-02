@@ -1,50 +1,52 @@
 import java.util.*;
 class Area{
 	
+      //Area of Triangle
       public static double areaOfTriangle(double width, double height){
       	double area=(width*height)/2;
       	return area;
-	  }
+      }
 	  
-	  public static double areaOfRectangle(double width, double height){
+      //Area of Rectangle	  
+      public static double areaOfRectangle(double width, double height){
       	double area=width*height;
       	return area;
-	  }
+      }
 	  
-	  public static double areaOfSquare(double width){
+      //Area of Square	  
+      public static double areaOfSquare(double width){
       	double area=width*width;
       	return area;
-	  }
+      }
 	  
-	  public static double areaOfCircle(double radius){
+      //Area of Circle	  
+      public static double areaOfCircle(double radius){
       	double area=3.141*radius*radius;
       	return area;
-	  }
+      }
 	  
-	  public static void main(String args[]){
-		 Scanner sc=new Scanner(System.in);
-		 
-			System.out.println("FOR TRIANGLE");
-			System.out.print("Enter Width and Height :");
-			double width=sc.nextDouble();
-			double height=sc.nextDouble();
-		    System.out.println("Area Of Triangle is : "+areaOfTriangle(width,height));
+      public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+	System.out.println("FOR TRIANGLE");
+	System.out.print("Enter Width and Height :");
+	double width=sc.nextDouble();
+	double height=sc.nextDouble();
+	System.out.println("Area Of Triangle is : "+areaOfTriangle(width,height));
 		    
-		    System.out.println("FOR RECTANGLE");
-			System.out.print("Enter Width and Height :");
-		    width=sc.nextDouble();
-			height=sc.nextDouble();
-		    System.out.println("Area Of Rectangle is : "+areaOfRectangle(width,height));
+	System.out.println("FOR RECTANGLE");
+	System.out.print("Enter Width and Height :");
+	width=sc.nextDouble();
+	height=sc.nextDouble();
+        System.out.println("Area Of Rectangle is : "+areaOfRectangle(width,height));
 		    
-		    System.out.println("FOR SQUARE");
-			System.out.print("Enter Width :");
-			width=sc.nextDouble();
-		    System.out.println("Area Of Square is : "+areaOfSquare(width));
+        System.out.println("FOR SQUARE");
+	System.out.print("Enter Width :");
+	width=sc.nextDouble();
+	System.out.println("Area Of Square is : "+areaOfSquare(width));
 		    
-		    System.out.println("FOR CIRCLE");
-			System.out.print("Enter Radius :");
-			double radius=sc.nextDouble();
-		    System.out.println("Area Of Circle is : "+areaOfCircle(radius));
-		
-	  }
+        System.out.println("FOR CIRCLE");
+	System.out.print("Enter Radius :");
+	double radius=sc.nextDouble();
+	System.out.println("Area Of Circle is : "+areaOfCircle(radius));
+      }
 }
