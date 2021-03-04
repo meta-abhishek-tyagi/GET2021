@@ -20,24 +20,33 @@ class intSet{
 		System.out.println(this.set);
 	}
 	
+	//check whether x is a member of the set and return a boolean value
 	public boolean isMember(int x){
 		if(this.set.contains(x)){
 			return true;
 		} 
 		return false;
 	}
+	
+	//return the size of the set
 	public int size(){
 	  return this.set.size();
 	}
+	
+	//check whether s is a subset of the set
 	public boolean isSubSet(intSet s){
-		return this.set.containsAll(s.set);			
+	  return this.set.containsAll(s.set);			
 	}
+	
+	//return the union of s1 and s2
 	public Set union(intSet s1,intSet s2){
 	  Set<Integer> Union=s1.set;
 	  Union.addAll(s2.set);
 	  this.set=Union;
 		return this.set;
 	}
+	
+	//return the complement set
 	public Set getComplement(){
 		Set<Integer> compSet=new HashSet<>();
 		for(int i=minRange;i<=maxRange;i++){
@@ -47,6 +56,7 @@ class intSet{
 		}	 
 		return compSet;
 	}
+	
 	public static void main(String args[]){
 		Scanner sc=new Scanner(System.in);
 		
@@ -58,7 +68,7 @@ class intSet{
 		int arr[]=new int[n];
 		for(int i=0;i<n;i++){
 			System.out.println("enter element : "+(i+1));
-		  arr[i]=sc.nextInt();
+		        arr[i]=sc.nextInt();
 		}
 		intSet setArray=new intSet(arr);
 		System.out.println("Set is : ");
@@ -68,11 +78,11 @@ class intSet{
 		System.out.println("It is a member of set:"+setArray.isMember(n));
 		System.out.println("Size of set is : "+setArray.size());
 		System.out.println("Enter Number of elements in set");
-	  n=sc.nextInt();
+	        n=sc.nextInt();
 		int arr2[]=new int[n];
 		for(int i=0;i<n;i++){
 		 	System.out.println("enter element : "+(i+1));
-		  arr2[i]=sc.nextInt();    
+		        arr2[i]=sc.nextInt();    
 		}
 		intSet newSetArray=new intSet(arr2);
 		System.out.println("New Set is : ");
