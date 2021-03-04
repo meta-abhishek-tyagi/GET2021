@@ -30,19 +30,19 @@ class intSet{
 	
 	//return the size of the set
 	public int size(){
-	  return this.set.size();
+	        return this.set.size();
 	}
 	
 	//check whether s is a subset of the set
 	public boolean isSubSet(intSet s){
-	  return this.set.containsAll(s.set);			
+	        return this.set.containsAll(s.set);			
 	}
 	
 	//return the union of s1 and s2
 	public Set union(intSet s1,intSet s2){
-	  Set<Integer> Union=s1.set;
-	  Union.addAll(s2.set);
-	  this.set=Union;
+	        Set<Integer> Union=s1.set;
+	        Union.addAll(s2.set);
+	        this.set=Union;
 		return this.set;
 	}
 	
