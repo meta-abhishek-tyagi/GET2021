@@ -10,10 +10,10 @@ class Poly{
 		int noOfTerms=sc.nextInt();
 		int[][] tempPoly=new int[noOfTerms][2];
 		for(int i=0;i<noOfTerms;i++){
-			System.out.print("Enter coefficient + (i+1) + " : ");
+			System.out.print("Enter coefficient " + (i+1) + " : ");
 			int coef=sc.nextInt();
 			tempPoly[i][0]=coef;
-			System.out.print("Enter degree + (i+1) + " : ");
+			System.out.print("Enter degree " + (i+1) + " : ");
 			int deg=sc.nextInt();
 			tempPoly[i][1]=deg;
 		}
