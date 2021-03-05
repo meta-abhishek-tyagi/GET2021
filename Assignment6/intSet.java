@@ -63,11 +63,11 @@ class intSet{
 		Set<Integer> Union=new HashSet<Integer>();
 		Set<Integer> compSet=new HashSet<Integer>();
 		
-		System.out.println("Enter Number of elements in set");
+		System.out.println("Enter Number of elements in set : ");
 		int n=sc.nextInt();
 		int arr[]=new int[n];
 		for(int i=0;i<n;i++){
-			System.out.println("enter element : "+(i+1));
+			System.out.println("Enter element : " + (i+1));
 		        arr[i]=sc.nextInt();
 		}
 		intSet setArray=new intSet(arr);
@@ -75,27 +75,27 @@ class intSet{
 		setArray.printSet();		
 		System.out.println("Enter Number : ");
 		n=sc.nextInt();
-		System.out.println("It is a member of set:"+setArray.isMember(n));
-		System.out.println("Size of set is : "+setArray.size());
-		System.out.println("Enter Number of elements in set");
+		System.out.println("It is a member of set : " + setArray.isMember(n));
+		System.out.println("Size of set is : " + setArray.size());
+		System.out.println("Enter Number of elements in set : ");
 	        n=sc.nextInt();
 		int arr2[]=new int[n];
 		for(int i=0;i<n;i++){
-		 	System.out.println("enter element : "+(i+1));
+		 	System.out.println("Enter element : " + (i+1));
 		        arr2[i]=sc.nextInt();    
 		}
 		intSet newSetArray=new intSet(arr2);
 		System.out.println("New Set is : ");
 		newSetArray.printSet();
 		System.out.println(); 
-		System.out.println("new set is subset of given Set : "+setArray.isSubSet(newSetArray));
+		System.out.println("new set is subset of given Set : " + setArray.isSubSet(newSetArray));
 		int arr3[]=new int[1]; 
 		intSet unionSetArray=new intSet(arr3);
 		Union=unionSetArray.union(setArray,newSetArray);
 		System.out.println();
-		System.out.println(" Union of new set and main Set : "+Union);
+		System.out.println("Union of new set and main Set : " + Union);
 		compSet=newSetArray.getComplement();
 		System.out.println();
-		System.out.println(" complement of new set : "+compSet);	
+		System.out.println("complement of new set : " + compSet);	
 	}
 }
