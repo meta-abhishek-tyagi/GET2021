@@ -1,3 +1,4 @@
+//LoopDetect
 import java.util.*;
 import java.io.*;
 class LinkedList{
