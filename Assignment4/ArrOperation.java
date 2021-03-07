@@ -61,6 +61,12 @@ class ArrOperation{
 			else if(tempArray[i]==y){
 				yindex.add(i);
 			}
+			// If x at the last index
+			if(i == arr.length - 1 && arr[i] == x)
+		 			throw new IllegalStateException("X is the at the last Index");
+		 	// If there are two adjacent x then throw exception
+		 	if( i < arr.length -1 && (arr[i] == x && arr[i+1] == x ))
+		 			throw new IllegalStateException("Two Adjacent X values are there");
 		}
 		if(xindex.size()>0 && yindex.size()>0){
 		  for(int i=0;i<xindex.size();i++){
