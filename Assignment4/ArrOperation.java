@@ -4,6 +4,8 @@ class ArrOperation{
 	
 	public static int largestMirror(int[] arr){
 		int i=0,j=0,temp=0,cnt=0,largest=0;
+		if(arr.length == 0)
+			throw new ArrayIndexOutOfBoundsException("Array is empty");
 		while(i<arr.length-1){
 			cnt=0;
 			temp=i;
@@ -29,6 +31,8 @@ class ArrOperation{
 	public static int clumps(int arr[]){
 		int cnt=0;
 		int flag=0;
+		if(arr.length == 0)
+			throw new ArrayIndexOutOfBoundsException("Array is empty");
 		for(int i=0;i<arr.length-1;i++){
 			flag=0;
 			while(i<arr.length-1 && arr[i]==arr[i+1]){
@@ -43,6 +47,8 @@ class ArrOperation{
 	}
 	
 	public static int[] fixXY(int arr[],int x,int y){
+		if(arr.length == 0)
+			throw new ArrayIndexOutOfBoundsException("Array is empty");
 		int[] tempArray=new int[arr.length];
 		tempArray=arr;
 		int temp=0,xi=0,yi=0;
@@ -72,7 +78,8 @@ class ArrOperation{
 		int n=arr.length;
 	   int frontSum[]=new int[n];
 	   int backSum[]=new int[n];
-	   
+	   if(arr.length == 0)
+			throw new ArrayIndexOutOfBoundsException("Array is empty");
 	   // forming sum of array from left side.
 	   frontSum[0]=arr[0];
 	   for(int i=1;i<n;i++){
