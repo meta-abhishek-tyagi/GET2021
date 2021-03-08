@@ -24,33 +24,33 @@ class Poly{
 		int len=this.polynomial.length;
 		for(int i=0;i<len;i++){
 			System.out.print(this.polynomial[i][0] + "x^" + this.polynomial[i][1]);
-			if(i!=len-1)
+			if(i != len-1)
 			  System.out.print(" + ");
 		}
 		System.out.println();
 	}
 	
   //Evaluate polynomial equation for the given variable number
-	public double evaluate(){
-    System.out.println("Enter Variable Number to evaluate : ");
-    double varNum=sc.nextDouble();
-    double ans=0.0;
-    int len=this.polynomial.length;
+        public double evaluate(){
+                System.out.println("Enter Variable Number to evaluate : ");
+                double varNum=sc.nextDouble();
+                double ans=0.0;
+                int len=this.polynomial.length;
 		for(int i=0;i<len;i++){
 			ans += this.polynomial[i][0] * Math.pow(varNum, (double)this.polynomial[i][1]);
-	  }
+	        }
 		return ans; 		
 	}
 	
   //Return the degree of the polynomial                     
 	public int degree(){
-    int ans=0;
-    int len=this.polynomial.length;
-		for(int i=0;i<len;i++){
+               int ans=0;
+               int len=this.polynomial.length;
+	       for(int i=0;i<len;i++){
 			if(ans<this.polynomial[i][1])
-			  ans=this.polynomial[i][1];
-		}
-		return ans; 		
+			ans=this.polynomial[i][1];
+	       }
+	       return ans; 		
 	}
 	
   //Return the sum of the polynomial p1 and p2                     
@@ -61,7 +61,7 @@ class Poly{
 		int cntp1=0, cntp2=0, cntTP=0;
 		
 	// Adding polynomial p1 & p2:
-	while(lenp1>cntp1 && lenp2>cntp2){
+	while(lenp1 > cntp1 && lenp2 > cntp2){
 		if(p1.polynomial[cntp1][1] == p2.polynomial[cntp2][1]){
 			tempPoly[cntTP][0] = p1.polynomial[cntp1][0] + p2.polynomial[cntp2][0];
 			tempPoly[cntTP][1] = p1.polynomial[cntp1][1];
@@ -69,9 +69,9 @@ class Poly{
 			cntp2++;
 		}
 		else if(p1.polynomial[cntp1][1] < p2.polynomial[cntp2][1]){
-		  tempPoly[cntTP][0]=p1.polynomial[cntp1][0];
-		  tempPoly[cntTP][1]=p1.polynomial[cntp1][1];
-		  cntp1++;
+		        tempPoly[cntTP][0]=p1.polynomial[cntp1][0];
+		        tempPoly[cntTP][1]=p1.polynomial[cntp1][1];
+		        cntp1++;
 		}
 		else if(p1.polynomial[cntp1][1] > p2.polynomial[cntp2][1]){
 			tempPoly[cntTP][0]=p2.polynomial[cntp2][0];
@@ -81,14 +81,14 @@ class Poly{
 		cntTP++;
 	}
 	// Adding polynomial p1 which left to add.
-	while(lenp1>cntp1){
+	while(lenp1 > cntp1){
 		tempPoly[cntTP][0]=p1.polynomial[cntp1][0];
 		tempPoly[cntTP][1]=p1.polynomial[cntp1][1];
 		cntp1++;
 		cntTP++;
 	}  
 	// Adding polynomial p2 which left to add.
-	while(lenp2>cntp2){
+	while(lenp2 > cntp2){
 		tempPoly[cntTP][0]=p2.polynomial[cntp2][0];
 		tempPoly[cntTP][1]=p2.polynomial[cntp2][1];
 		cntp2++;
@@ -117,10 +117,10 @@ class Poly{
 				tempPoly[k][1] = p1.polynomial[i][1] + p2.polynomial[j][1];
 				k++;
 			}
-	  }
-    //Print the multiplication of polynomial p1 and p2
+	        }
+                //Print the multiplication of polynomial p1 and p2
 		System.out.print("Multiplication is :  ");
-	    for(int i=0;i<k;i++){
+	        for(int i=0;i<k;i++){
 			System.out.print(tempPoly[i][0] + "x^" + tempPoly[i][1]);
 			if(i != k-1)
 			  System.out.print(" + ");
@@ -132,7 +132,7 @@ class Poly{
 	public static void sort(Poly poly){
 		int temp;
 		for(int i=0;i<poly.polynomial.length;i++){
-		 for(int j=0;j<poly.polynomial.length-(i+1);j++){
+		  for(int j=0;j<poly.polynomial.length-(i+1);j++){
 			if(poly.polynomial[j][1] > poly.polynomial[j+1][1]){
 			  temp=poly.polynomial[j][1];
 			  poly.polynomial[j][1]=poly.polynomial[j+1][1];
@@ -141,7 +141,7 @@ class Poly{
 			  poly.polynomial[j][0]=poly.polynomial[j+1][0];
 			  poly.polynomial[j+1][0]=temp;	
 			}
-		 }
+		  }
 		}
 	}
 	
@@ -152,14 +152,14 @@ class Poly{
 		
 		System.out.println("FOR SECOND POLYNOMIAL :");
 		Poly p2=new Poly();
-	  System.out.println();
+	        System.out.println();
 
-    sort(p1);
+                sort(p1);
 		System.out.println("First Polynomial Expression is : ");
 		p1.printPoly();
-   	System.out.println();
+   	        System.out.println();
    	    
-   	sort(p2);
+   	        sort(p2);
 		System.out.println("Second Polynomial Expression is : ");
 		p2.printPoly();
 		System.out.println();
@@ -174,8 +174,8 @@ class Poly{
 		System.out.println("Degree of 2nd Polynomial is : " + p2.degree());
 		System.out.println();
 		
-		addPoly(p1,p2);
+		addPoly(p1, p2);
 		System.out.println();
-		multPoly(p1,p2);
+		multPoly(p1, p2);
 	}
 }
