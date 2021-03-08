@@ -8,11 +8,10 @@ import org.junit.rules.ExpectedException;
 
 public class ArrOperationTest {
 	
-	@Rule
+    @Rule
     public ExpectedException exception = ExpectedException.none();
 	
 	// Return the size of the largest mirror section found in the input array.
-
 	@Test 
 	public void MirrorEmptyArrayTest() throws ArrayIndexOutOfBoundsException{
 		exception.expect(ArrayIndexOutOfBoundsException.class);
@@ -31,11 +30,10 @@ public class ArrOperationTest {
 	
 	
 	// Return the number of clumps in the input array.
-
 	@Test
 	public void clumpsEmptyArrayTest() {
 		exception.expect(ArrayIndexOutOfBoundsException.class);
-        exception.expectMessage("Array is empty");
+                exception.expectMessage("Array is empty");
 		int arr[] = {};
 		int actual = ArrOperation.clumps(arr);
 		int expected = 0;
@@ -53,7 +51,6 @@ public class ArrOperationTest {
 	
 	
 	//Solve fixXY problem
-
 	@Test
 	public void fixXYTest1() {
 		int arr[] = {5, 4, 9, 4, 9, 5};
@@ -68,19 +65,17 @@ public class ArrOperationTest {
 	@Test
 	public void fixXYEmptyArrayTest() {
 		exception.expect(ArrayIndexOutOfBoundsException.class);
-        exception.expectMessage("Array is empty");
+                exception.expectMessage("Array is empty");
 		int arr[] = {};
 		int x = 4;
 		int y = 5;
 		ArrOperation.fixXY(arr, x, y);
-		
 	}
 	
 	@Test
 	public void fixXY_x_AtLastIndex(){
 		exception.expect(IllegalStateException.class);
-        exception.expectMessage("X is the at the last Index");
-       
+                exception.expectMessage("X is the at the last Index");
 		int arr[] = {3,2,4,7,5,3,4,5,5,4};
 		int x = 4;
 		int y = 5;
