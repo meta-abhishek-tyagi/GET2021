@@ -1,7 +1,6 @@
 package Assignment5;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 
 public class SearchTest {
@@ -27,7 +26,7 @@ public class SearchTest {
 	
 	//Test cases for Binary Search
 	@Test
-	public void	binarySearchPositiveTestCase() {
+	public void binarySearchPositiveTestCase() {
 		int arr[] = {2, 4, 6, 8, 10};
 		int itemToSearch = 6;
 		int expected = 2;
