@@ -2,7 +2,7 @@ package Assignment4;
 import java.util.*;
 class ArrOperation{
 	
-	//Return the size of the largest mirror section found in the input array.
+      //Return the size of the largest mirror section found in the input array.
       public static int largestMirror(int[] arr){
 	      int max=0;
 	      if(arr.length == 0)
@@ -24,21 +24,21 @@ class ArrOperation{
 	
 	//Return the number of clumps in the input array.
 	public static int clumps(int arr[]){
-		int cnt=0;
-		int flag=0;
+		int count=0;
+		boolean isClump=false;
 		if(arr.length == 0)
 			throw new ArrayIndexOutOfBoundsException("Array is empty");
 		for(int i=0;i<arr.length-1;i++){
-			flag=0;
-			while(i < arr.length-1 && arr[i] == arr[i+1]){
-				flag=1;
-				i++;
-			}
-			if(flag == 1){
-				cnt++;
-			}
+		    if(isClump){
+		    	if(arr[i] != arr[i+1])
+		    		isClump=false;
+		    }	
+		    else if(arr[i] == arr[i+1]){
+		    	isClump=true;
+		    	count++;
+		    }
 		}
-		return cnt;
+		return count;
 	}
 	
 	//Return an array that contains exactly the same numbers as the input array, but rearranged so that every X is immediately followed by a Y.
