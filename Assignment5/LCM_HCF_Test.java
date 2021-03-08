@@ -1,6 +1,6 @@
 package Assignment5;
-import static org.junit.Assert.*;
 
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class LCM_HCF_Test {
