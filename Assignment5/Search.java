@@ -16,17 +16,17 @@ class Search{
 	
 	//Binary Search
 	public static int binarySearch(int arr[], int leftmost, int rightmost, int itemToSearch){
-        if(rightmost<leftmost){
-        	return -1;
-        }
+                if(rightmost < leftmost){
+                	return -1;
+                }
 		if(rightmost >= 1 && leftmost < arr.length-1 ){
-        	int mid = (leftmost+rightmost-1)/2;
+        	    int mid = (leftmost+rightmost-1)/2;
 		    if(arr[mid] == itemToSearch)
 			   return mid;
 		    if(arr[mid] > itemToSearch)
 			   return binarySearch(arr, leftmost, mid-1, itemToSearch);
 		    return binarySearch(arr, mid+1, rightmost, itemToSearch);
-        }
+                }
         return -1;
 	}
 	
@@ -46,42 +46,42 @@ class Search{
 	public static void main(String args[]){
 		int itemToSearch=0;
 		int ch, index;
-	    do{
-	      System.out.print("\n1. Linear search \n" + "2. Binary Search \n" + "3. Exit \n" + "Enter your choice : ");
-	      ch=sc.nextInt();
-	      switch(ch){
-	    	case 1: 
-	    		
-	    		int arr[]=createArray();
-	    		System.out.print("Enter item to search : ");
-	    		itemToSearch=sc.nextInt();
-	    	 	index=linearSearch(arr, 0, arr.length-1, itemToSearch);
-	            if(index != -1)
-	                System.out.print("Element " + itemToSearch + " is present at index " + (index+1));
-	        	else
+	        do{
+	               System.out.print("\n1. Linear search \n" + "2. Binary Search \n" + "3. Exit \n" + "Enter your choice : ");
+	               ch=sc.nextInt();
+	               switch(ch){
+	    	       case 1:
+	    		   int arr[]=createArray();
+	    		   System.out.print("Enter item to search : ");
+	    		   itemToSearch=sc.nextInt();
+	    	 	   index=linearSearch(arr, 0, arr.length-1, itemToSearch);
+	                   if(index != -1)
+	                        System.out.print("Element " + itemToSearch + " is present at index " + (index+1));
+	        	   else
 	        		System.out.print("Element " + itemToSearch + " is not present in the given array");
-	            break;
+	                   break;
 	            
-	    	case 2: 
-	    		System.out.println("(Assume array must be sorted)");
-	    		int arr1[]=createArray();
-	    		System.out.print("Enter item to search : ");
-	    		itemToSearch=sc.nextInt();
-         	    index=binarySearch(arr1, 0, arr1.length-1, itemToSearch);
-         	    if(index != -1)
-                    System.out.print("Element " + itemToSearch + " is present at index " + (index+1));
-    		    else
-    		     	System.out.print("Element " + itemToSearch + " is not present in the given array");
-        	    break;
-	    	case 3:
-	    		System.out.println("Thanks for using !!");
-	    		System.exit(0);
-	            break;
-	    	default: 
-	    		System.out.print("Invalid choice");
-	       }
-	    
-		}
-	    while(ch != 3);     
+	    	      case 2: 
+	    		   System.out.println("(Assume array must be sorted)");
+	    		   int arr1[]=createArray();
+	    		   System.out.print("Enter item to search : ");
+	    		   itemToSearch=sc.nextInt();
+         	           index=binarySearch(arr1, 0, arr1.length-1, itemToSearch);
+         	           if(index != -1)
+                               System.out.print("Element " + itemToSearch + " is present at index " + (index+1));
+    		           else
+    		     	       System.out.print("Element " + itemToSearch + " is not present in the given array");
+        	           break;
+				       
+	    	      case 3:
+	    		   System.out.println("Thanks for using !!");
+	    		   System.exit(0);
+	                   break;
+				       
+	    	      default: 
+	    		   System.out.print("Invalid choice");
+	              }
+	         }
+	         while(ch != 3);     
 	}
 }
