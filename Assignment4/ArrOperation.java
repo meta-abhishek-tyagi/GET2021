@@ -2,32 +2,27 @@ package Assignment4;
 import java.util.*;
 class ArrOperation{
 	
-	public static int largestMirror(int[] arr){
-		int i=0, j=0, temp=0, cnt=0, largest=0;
-		if(arr.length == 0)
-			throw new ArrayIndexOutOfBoundsException("Array is empty");
-		while(i < arr.length-1){
-			cnt=0;
-			temp=i;
-			j=arr.length-1;
-			while(j >= temp){
-				if(arr[temp] == arr[j]){
-					cnt++;
-					if(temp == j)
-						cnt++;
-				        temp++;
-				}
-				else if(cnt > 0)
-				        break;
-				if(largest < cnt)
-				        largest=cnt;
-				j--;
-			}
-			i++;
-		}
-		return largest; 
+	//Return the size of the largest mirror section found in the input array.
+      public static int largestMirror(int[] arr){
+	      int max=0;
+	      if(arr.length == 0)
+		      throw new ArrayIndexOutOfBoundsException("Array is empty");
+	      for(int i = 0; i < arr.length; i++) {
+	              int count = 0;
+	              for(int j = arr.length - 1; j >= 0 && i + count < arr.length; j--) {
+	                      if(arr[i + count] == arr[j]) {
+	                             count++;
+	                      } 
+	                      else {
+	                             max = Math.max(max, count);
+	                             count = 0;
+	                      }
+	                }                                                    
+	        }
+	        return max;
 	}
 	
+	//Return the number of clumps in the input array.
 	public static int clumps(int arr[]){
 		int cnt=0;
 		int flag=0;
@@ -46,6 +41,7 @@ class ArrOperation{
 		return cnt;
 	}
 	
+	//Return an array that contains exactly the same numbers as the input array, but rearranged so that every X is immediately followed by a Y.
 	public static int[] fixXY(int arr[], int x, int y){
 		if(arr.length == 0)
 			throw new ArrayIndexOutOfBoundsException("Array is empty");
@@ -80,6 +76,7 @@ class ArrOperation{
 		return tempArray;		
 	}
 	
+	//Return the index if there is a place to split the input array so that the sum of the numbers on one side is equal to the sum of the numbers on the other side.
 	public static int splitArray(int arr[]){
 		int n=arr.length;
 	        int frontSum[]=new int[n];
