@@ -1,10 +1,10 @@
 import java.util.*;
-import java.io.*;
 class intSet{
         private Set<Integer> set;
 	private final int minRange=1;
 	private final int maxRange=1000;
 	
+	//Constructor
 	public intSet(int arr[]){
 	   Set<Integer> temp=new HashSet<>();
 	   for(int i=0;i<arr.length;i++){
@@ -15,6 +15,7 @@ class intSet{
 	   this.set=temp;
 	}
 	
+	//To print set elements
 	public void printSet(){
 	   System.out.println(this.set);
 	}
@@ -47,20 +48,20 @@ class intSet{
 	
 	//return the complement set
 	public Set getComplement(){
-	   Set<Integer> compSet=new HashSet<>();
+	   Set<Integer> complementSet=new HashSet<>();
 	   for(int i=minRange;i<=maxRange;i++){
 	      if(this.set.contains(i))
 	         continue;
-		 compSet.add(i);
+		 complementSet.add(i);
 	      }	 
-	      return compSet;
+	      return complementSet;
 	}
 	
 	public static void main(String args[]){
 	   Scanner sc=new Scanner(System.in);	
 	   Set<Integer> Union=new HashSet<Integer>();
-	   Set<Integer> compSet=new HashSet<Integer>();	
-	   System.out.println("Enter Number of elements in set : ");
+	   Set<Integer> complementSet=new HashSet<Integer>();	
+	   System.out.println("Enter number of elements in set : ");
 	   int n=sc.nextInt();
 	   int arr[]=new int[n];
            for(int i=0;i<n;i++){
@@ -70,11 +71,11 @@ class intSet{
 	   intSet setArray=new intSet(arr);
 	   System.out.println("Set is : ");
 	   setArray.printSet();		
-	   System.out.println("Enter Number : ");
+	   System.out.println("Enter number to check a member is present in a set or not: ");
 	   n=sc.nextInt();
 	   System.out.println("It is a member of set : " + setArray.isMember(n));
 	   System.out.println("Size of set is : " + setArray.size());
-	   System.out.println("Enter Number of elements in set : ");
+	   System.out.println("Enter number of elements of subset of a set: ");
 	   n=sc.nextInt();
            int arr2[]=new int[n];
 	   for(int i=0;i<n;i++){
@@ -82,17 +83,17 @@ class intSet{
               arr2[i]=sc.nextInt();    
 	   }
 	   intSet newSetArray=new intSet(arr2);
-	   System.out.println("New Set is : ");
+	   System.out.println("Subset is : ");
 	   newSetArray.printSet();
 	   System.out.println(); 
-	   System.out.println("new set is subset of given Set : " + setArray.isSubSet(newSetArray));
+	   System.out.println("New set is subset of given Set : " + setArray.isSubSet(newSetArray));
 	   int arr3[]=new int[1]; 
 	   intSet unionSetArray=new intSet(arr3);
-	   Union=unionSetArray.union(setArray,newSetArray);
+	   Union=unionSetArray.union(setArray, newSetArray);
 	   System.out.println();
-	   System.out.println("Union of new set and main Set : " + Union);
-	   compSet=newSetArray.getComplement();
+	   System.out.println("Union of set and subset is: " + Union);
+	   complementSet=newSetArray.getComplement();
 	   System.out.println();
-	   System.out.println("complement of new set : " + compSet);	
+	   System.out.println("Complement of subset is : " + complementSet);	
 	}
 }
