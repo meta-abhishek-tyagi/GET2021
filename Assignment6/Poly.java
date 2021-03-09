@@ -1,9 +1,9 @@
 import java.util.*;
-import java.io.*;
 class Poly{
 	Scanner sc=new Scanner(System.in);
 	private int[][] polynomial;
 	
+	//Constructor
 	public Poly(){
 	   System.out.print("Enter number of terms in a polynomial : ");
 	   int noOfTerms=sc.nextInt();
@@ -31,7 +31,7 @@ class Poly{
 	
         //Evaluate polynomial equation for the given variable number
         public double evaluate(){
-           System.out.println("Enter Variable Number to evaluate : ");
+           System.out.println("Enter Variable number to evaluate : ");
            double varNum=sc.nextDouble();
            double ans=0.0;
            int len=this.polynomial.length;
@@ -49,7 +49,9 @@ class Poly{
 	       if(ans<this.polynomial[i][1])
 	       ans=this.polynomial[i][1];
 	   }
-	   return ans; 		
+	   return ans; 	
+           /*or
+	     return this.polynomial[len-1][1]; */
 	}
 	
         //Return the sum of the polynomial p1 and p2                     
@@ -129,10 +131,10 @@ class Poly{
 	         System.out.print(" + ");
 	      }
 	      System.out.println();
-	   }
+	 }
                        
-	   //Sort the polynomial in ascending order
-           public static void sort(Poly poly){
+	 //Sort the polynomial in ascending order
+         public static void sort(Poly poly){
 	     int temp;
 	     for(int i=0;i<poly.polynomial.length;i++){
 		for(int j=0;j<poly.polynomial.length-(i+1);j++){
@@ -146,13 +148,13 @@ class Poly{
 		    }
 		 }
 	      }
-	}
+	   }
 	
 	public static void main(String args[]){
-	  System.out.println("FOR FIRST POLYNOMIAL :");
+	  System.out.println("FOR FIRST POLYNOMIAL");
 	  Poly p1=new Poly();
 	  System.out.println();
-	  System.out.println("FOR SECOND POLYNOMIAL :");
+	  System.out.println("FOR SECOND POLYNOMIAL");
 	  Poly p2=new Poly();
 	  System.out.println();
           sort(p1);
