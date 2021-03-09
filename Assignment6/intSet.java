@@ -65,21 +65,21 @@ class intSet{
 	   int n=sc.nextInt();
 	   int arr[]=new int[n];
            for(int i=0;i<n;i++){
-	      System.out.println("Enter element : " + (i+1));
+	      System.out.println("Enter element " + (i+1) + " : ");
 	      arr[i]=sc.nextInt();
 	   }
 	   intSet setArray=new intSet(arr);
 	   System.out.println("Set is : ");
 	   setArray.printSet();		
-	   System.out.println("Enter number to check a member is present in a set or not: ");
+	   System.out.println("Enter number to check a member is present in a set or not : ");
 	   n=sc.nextInt();
 	   System.out.println("It is a member of set : " + setArray.isMember(n));
 	   System.out.println("Size of set is : " + setArray.size());
-	   System.out.println("Enter number of elements of subset of a set: ");
+	   System.out.println("Enter number of elements of subset : ");
 	   n=sc.nextInt();
            int arr2[]=new int[n];
 	   for(int i=0;i<n;i++){
-	      System.out.println("Enter element : " + (i+1));
+	      System.out.println("Enter element " + (i+1) + " : ");
               arr2[i]=sc.nextInt();    
 	   }
 	   intSet newSetArray=new intSet(arr2);
