@@ -1,6 +1,5 @@
 //LoopDetect
 import java.util.*;
-import java.io.*;
 class LinkedList{	
      Node head;
 	
@@ -8,20 +7,21 @@ class LinkedList{
     static class Node{
 	int data, flag;
 	Node next;
+	    
         // Constructor
-	public Node(int d){
-           data=d;
+	public Node(int data){
+           this.data=data;
            flag=0;
            next = null;
 	}
     }
 	
     // Method to insert new node.
-    public static LinkedList insert(LinkedList list, int d){ 
+    public static LinkedList insert(LinkedList list, int data){ 
      
         // Create a new node with given data
-        Node new_node = new Node(d);
-        new_node.next = null;
+        Node new_node = new Node(data);
+        //new_node.next = null;
         if(list.head == null){
            list.head = new_node;
         }
@@ -61,14 +61,14 @@ class LinkedList{
     }
    
     public static void main(String args[]){
-	Scanner sc=new Scanner(System.in);
-	LinkedList list=new LinkedList();
-	list=insert(list, 1);
-	list=insert(list, 3);
-	list=insert(list, 2);
-	list=insert(list, 4);
-	list=insert(list, 5);	
-	list=creatingLoop(list);
+	Scanner sc = new Scanner(System.in);
+	LinkedList list = new LinkedList();
+	list = insert(list, 1);
+	list = insert(list, 3);
+	list = insert(list, 2);
+	list = insert(list, 4);
+	list = insert(list, 5);	
+	list = creatingLoop(list);
 	if(detectingLoop(list)){
           System.out.println("There is a Loop in a LinkedList");	
 	}
