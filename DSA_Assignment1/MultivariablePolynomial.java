@@ -28,7 +28,7 @@ class LinkedList {
         }
         else{
            Node last = list.head;
-           while (last.next != null) {
+           while (last.next != null){
               last = last.next;
            }
          
@@ -45,7 +45,7 @@ class LinkedList {
         while (currentNode != null) {
             System.out.print(currentNode.coefficient + "X^" + currentNode.degreeOfX + "Y^" + currentNode.degreeOfY + "Z^" + currentNode.degreeOfZ);
             if(currentNode.next != null && currentNode.next.coefficient > 0)
-              System.out.print("+");
+               System.out.print("+");
             currentNode = currentNode.next;
         }
     }
@@ -53,36 +53,36 @@ class LinkedList {
     // Method to find degree of Polynomial.
     public static int degreePoly(LinkedList list){
     	   Node currentNode = list.head;
-    	   int sum=0;
-    	   int degree=0;
+    	   int sum = 0;
+    	   int degree = 0;
     	   while(currentNode != null){
     		    sum = currentNode.degreeOfX + currentNode.degreeOfY + currentNode.degreeOfZ;
     	      	if(sum > degree)
-    		         degree=sum;
-    		    currentNode=currentNode.next;  
-    	       }
-    	       return degree;
-        }
+    		         degree = sum;
+    		    currentNode = currentNode.next;  
+    	   }
+    	   return degree;
+    }
     
     public static void main(String args[]){
-         Scanner sc=new Scanner(System.in);
+         Scanner sc = new Scanner(System.in);
     	 int cofficient, degreeOfX , degreeOfY, degreeOfZ;
     	 LinkedList list = new LinkedList();
     	 System.out.println("Enter No. Of Terms in polynomial : ");
     	 int noOfTerms = sc.nextInt();
     	 for(int i=0;i<noOfTerms;i++){
     		System.out.println("Enter Coefficient " + (i+1) + " : ");
-    		cofficient=sc.nextInt();
+    		cofficient = sc.nextInt();
     		System.out.println("Enter  degree " + (i+1) + " of X " + " : ");
-    		degreeOfX=sc.nextInt();
+    		degreeOfX = sc.nextInt();
     		System.out.println("Enter  degree " + (i+1) + " of Y " + " : ");
-    		degreeOfY=sc.nextInt();
+    		degreeOfY = sc.nextInt();
     		System.out.println("Enter  degree " + (i+1) + " of Z " + " : ");
-    		degreeOfZ=sc.nextInt();
+    		degreeOfZ = sc.nextInt();
     		list=insert(list, cofficient, degreeOfX, degreeOfY, degreeOfZ);
-    }
-    System.out.println("Polynomial is :");
-    printList(list);
-    System.out.print("\nDegree of Polynomial is : " + degreePoly(list));
-  }
+          }
+          System.out.println("Polynomial is :");
+          printList(list);
+          System.out.print("\nDegree of Polynomial is : " + degreePoly(list));
+     }
 }
