@@ -1,10 +1,12 @@
 import java.util.*;
 class Rotate{
+	
+     //Method to rotate a subLinkedList	
      public static LinkedList rotateSubList(LinkedList<Integer> subLinkedList, int noOfSteps){	
 	int length=subLinkedList.size();	
 	if(noOfSteps > length)
 	   noOfSteps = noOfSteps % length;	   
-	   noOfSteps = length - noOfSteps;	
+	noOfSteps = length - noOfSteps;	
 	if(noOfSteps==0 || noOfSteps == length)
 	   return subLinkedList;
 	int cnt=0;
@@ -17,7 +19,8 @@ class Rotate{
 	}	
 	return subLinkedList;
      } 
-	
+	 
+     //Method to print final linkedList	
      public static void printList(LinkedList<Integer> list){
 	System.out.println("Modified Linked list : ");
 	for(int i=0;i<list.size();i++){
@@ -25,6 +28,7 @@ class Rotate{
 	}
      }
 	
+     //Method to create final linkedList	
      public static LinkedList outputList(LinkedList<Integer> subLinkedList, LinkedList<Integer> linkedList, int L, int R){
 	for(int i=0;i<L-1;i++){
 	    subLinkedList.addFirst(linkedList.get(i));
