@@ -44,8 +44,8 @@ class LinkedList {
         System.out.print("LinkedList : ");
         while (currentNode != null) {
             System.out.print(currentNode.coefficient + "X^" + currentNode.degreeOfX + "Y^" + currentNode.degreeOfY + "Z^" + currentNode.degreeOfZ);
-            if(currentNode.next != null)
-              System.out.print(" + ");
+            if(currentNode.next != null && currentNode.next.coefficient > 0)
+              System.out.print("+");
             currentNode = currentNode.next;
         }
     }
