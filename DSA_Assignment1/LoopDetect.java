@@ -10,8 +10,8 @@ class LinkedList{
 	    
         // Constructor
 	public Node(int data){
-           this.data=data;
-           flag=0;
+           this.data = data;
+           flag = 0;
            next = null;
 	}
     }
@@ -39,23 +39,23 @@ class LinkedList{
     
     // Method to create a loop.
     public static LinkedList creatingLoop(LinkedList list){
-    	Node currNode = list.head;
-    	while(currNode.next != null){
-    	    currNode=currNode.next;
+    	Node currentNode = list.head;
+    	while(currentNode.next != null){
+    	    currentNode = currentNode.next;
     	}
-    	currNode.next=list.head;
+    	currentNode.next = list.head;
     	return list;
     }
     
     // Method to detect a loop.
     public static boolean detectingLoop(LinkedList list){
-    	Node currNode = list.head;
-    	while(currNode != null){
-    	    if(currNode.flag == 1){
+    	Node currentNode = list.head;
+    	while(currentNode != null){
+    	    if(currentNode.flag == 1){
     	      return true;
     	    }
-    	    currNode.flag=1;
-    	    currNode=currNode.next;
+    	    currNode.flag = 1;
+    	    currNode = currNode.next;
     	}
     	return false;
     }
