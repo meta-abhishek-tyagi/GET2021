@@ -6,20 +6,21 @@ public class Circle implements Shape {
    double radius;
    Point coordinates;
    String timestamp;
-   int id;
+   int shapeId;
 	
-/* Constructor takes two parameter point object(Screen coordinates) 
-   and list object(Parameter of shapes)  */
+/* Constructor takes two parameter 
+   1. point object(Screen coordinates) 
+   2. list object(Parameter of shapes)  */
    Circle(Point point, List<Integer> list) {
 	coordinates = new Point(point.getX(), point.getY());
 	radius = list.get(0);
 	timestamp = new Date().toString();
    }
 	
-  //setter
+  //setter	
   @Override
   public void setId(int shapeId) {
-     id = shapeId;
+     shapeId = shapeId;
   }
 
   //getters
@@ -33,7 +34,7 @@ public class Circle implements Shape {
   }
   @Override
   public int getId() {
-     return id;
+     return shapeId;
   }
 	
   @Override
