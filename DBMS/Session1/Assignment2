@@ -1,0 +1,200 @@
+Normalization :-
+1) Normalization is the process of organizing the data in the database.
+2) Normalization is used to minimize the redundancy from a relation or set of relations. It is also used to eliminate the undesirable characteristics like Insertion,
+   Update and Deletion Anomalies.
+3) Normalization divides the larger table into the smaller table and links them using relationship.
+4) The normal form is used to reduce redundancy from the database table.
+
+Types of Normal Forms :
+
+First Normal Form (1NF) :
+> A relation will be 1NF if it contains an atomic value.
+> It states that an attribute of a table cannot hold multiple values. It must hold only single-valued attribute.
+> First normal form disallows the multi-valued attribute, composite attribute, and their combinations.
+  Example: Relation EMPLOYEE is not in 1NF because of multi-valued attribute EMP_PHONE.
+
+EMPLOYEE table:
+EMP_ID	  EMP_NAME	  EMP_PHONE	    EMP_STATE
+14	      John	      7272826385,   UP
+                      9064738238	
+
+20	      Harry	      8574783832	  Bihar
+
+12	      Sam	        7390372389,   Punjab
+                      8589830302	
+
+The decomposition of the EMPLOYEE table into 1NF has been shown below:
+EMP_ID	EMP_NAME    EMP_PHONE	     EMP_STATE
+14	    John	    7272826385	     UP
+14	    John	    9064738238	     UP
+20	    Harry	    8574783832	     Bihar
+12	    Sam	      7390372389	     Punjab
+12	    Sam	      8589830302	     Punjab
+
+
+Second Normal Form (2NF) :
+>In the 2NF, relational must be in 1NF.
+>In the second normal form, all non-key attributes are fully functional dependent on the primary key
+ Example: Let's assume, a school can store the data of teachers and the subjects they teach. In a school, a teacher can teach more
+          than one subject.
+
+TEACHER table
+TEACHER_ID    SUBJECT	         TEACHER_AGE
+25	      Chemistry	           30
+25	      Biology	             30
+47	      English	             35
+83	      Math	               38
+83	      Computer	           38
+
+In the given table, non-prime attribute TEACHER_AGE is dependent on TEACHER_ID which is a proper subset of a candidate key.
+That's why it violates the rule for 2NF.
+To convert the given table into 2NF, we decompose it into two tables:
+
+TEACHER_DETAIL table:
+TEACHER_ID	TEACHER_AGE
+25	        30
+47	        35
+83	        38
+
+TEACHER_SUBJECT table:
+TEACHER_ID	SUBJECT
+25	        Chemistry
+25	        Biology
+47	        English
+83	        Math
+83	        Computer
+
+
+Third Normal Form (3NF)
+> A relation will be in 3NF if it is in 2NF and not contain any transitive partial dependency.
+> 3NF is used to reduce the data duplication. It is also used to achieve the data integrity.
+> If there is no transitive dependency for non-prime attributes, then the relation must be in third normal form.
+> A relation is in third normal form if it holds atleast one of the following conditions for every non-trivial function dependency
+  X → Y.
+
+> X is a super key.
+> Y is a prime attribute, i.e., each element of Y is part of some candidate key.
+  Example:
+
+EMPLOYEE_DETAIL table:
+EMP_ID	EMP_NAME	    EMP_ZIP	     EMP_STATE	  EMP_CITY
+222	    Harry	        201010        UP	        Noida
+333	    Stephan	      02228	        US	        Boston
+444	    Lan	          60007	        US	        Chicago
+555	    Katharine	    06389	        UK	        Norwich
+666	    John	        462007	      MP	        Bhopal
+
+Super key in the table above:
+{EMP_ID}, {EMP_ID, EMP_NAME}, {EMP_ID, EMP_NAME, EMP_ZIP}....so on  
+
+Candidate key: {EMP_ID}
+
+Non-prime attributes: In the given table, all attributes except EMP_ID are non-prime.
+Here, EMP_STATE & EMP_CITY dependent on EMP_ZIP and EMP_ZIP dependent on EMP_ID. 
+The non-prime attributes (EMP_STATE, EMP_CITY) transitively dependent on super key(EMP_ID). 
+It violates the rule of third normal form.
+
+That's why we need to move the EMP_CITY and EMP_STATE to the new <EMPLOYEE_ZIP> table, with EMP_ZIP as a Primary key.
+
+EMPLOYEE table:
+EMP_ID	EMP_NAME	EMP_ZIP
+222	    Harry	    201010
+333	    Stephan	  02228
+444	    Lan	      60007
+555	    Katharine	06389
+666	    John	    462007
+
+EMPLOYEE_ZIP table:
+EMP_ZIP	 EMP_STATE  EMP_CITY
+201010	 UP	        Noida
+02228	   US	        Boston
+60007	   US	        Chicago
+06389	   UK	        Norwich
+462007	 MP	        Bhopal
+
+
+Boyce Codd normal form (BCNF)
+> BCNF is the advance version of 3NF. It is stricter than 3NF.
+> A table is in BCNF if every functional dependency X → Y, X is the super key of the table.
+> For BCNF, the table should be in 3NF, and for every FD, LHS is super key.
+  Example: Let's assume there is a company where employees work in more than one department.
+
+EMPLOYEE table:
+EMP_ID	EMP_COUNTRY	EMP_DEPT	     DEPT_TYPE	   EMP_DEPT_NO
+264	    India	      Designing	      D394	        283
+264	    India	      Testing	        D394	        300
+364	    UK	        Stores	        D283	        232
+364	    UK	        Developing	    D283	        549
+
+In the above table Functional dependencies are as follows:
+EMP_ID  →  EMP_COUNTRY  
+EMP_DEPT  →   {DEPT_TYPE, EMP_DEPT_NO}  
+Candidate key: {EMP-ID, EMP-DEPT}
+
+The table is not in BCNF because neither EMP_DEPT nor EMP_ID alone are keys.
+To convert the given table into BCNF, we decompose it into three tables:
+
+EMP_COUNTRY table:
+EMP_ID	EMP_COUNTRY
+264	    India
+264	    India
+
+EMP_DEPT table:
+EMP_DEPT	      DEPT_TYPE	    EMP_DEPT_NO
+Designing	      D394	        283
+Testing	        D394	        300
+Stores	        D283	        232
+Developing	    D283	        549
+
+EMP_DEPT_MAPPING table:
+EMP_ID	EMP_DEPT
+D394	  283
+D394	  300
+D283	  232
+D283	  549
+
+Functional dependencies:
+EMP_ID   →    EMP_COUNTRY  
+EMP_DEPT   →   {DEPT_TYPE, EMP_DEPT_NO}
+  
+Candidate keys:
+For the first table: EMP_ID
+For the second table: EMP_DEPT
+For the third table: {EMP_ID, EMP_DEPT}
+
+Now, this is in BCNF because left side part of both the functional dependencies is a key.
+
+
+Fourth normal form (4NF)
+> A relation will be in 4NF if it is in Boyce Codd normal form and has no multi-valued dependency.
+> For a dependency A → B, if for a single value of A, multiple values of B exists, then the relation will be a multi-valued dependency.
+  Example
+
+STUDENT
+STU_ID	COURSE	    HOBBY
+21	    Computer    Dancing
+21	    Math	    Singing
+34	    Chemistry   Dancing
+74	    Biology	    Cricket
+59	    Physics	    Hockey
+
+The given STUDENT table is in 3NF, but the COURSE and HOBBY are two independent entity. Hence, there is no relationship between COURSE and HOBBY.
+In the STUDENT relation, a student with STU_ID, 21 contains two courses, Computer and Math and two hobbies, Dancing and Singing. So there is a Multi-valued dependency on STU_ID, which leads to unnecessary repetition of data.
+So to make the above table into 4NF, we can decompose it into two tables:
+
+STUDENT_COURSE
+STU_ID	COURSE
+21	    Computer
+21	    Math
+34	    Chemistry
+74	    Biology
+59	    Physics
+
+STUDENT_HOBBY
+STU_ID	HOBBY
+21	    Dancing
+21	    Singing
+34	    Dancing
+74	    Cricket
+59	    Hockey
+
