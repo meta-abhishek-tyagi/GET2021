@@ -1,56 +1,77 @@
 import java.util.*;
-class MolecularMass{
-   
-  //Return Molecular Mass of the mentioned Atom
-	public static int getMass(char ch){
-		if(ch == 'C')
-			return 12;
-		else if(ch == 'H')
-			return 1;
-		else if(ch == 'O')
-			return 16;
-		return 0;
+public class MolecularMass {
+
+	//Return Molecular Mass of the mentioned Atom
+	public static int getMass(char character){
+	   if (character == 'C')
+		return 12;
+	   if (character == 'H')
+		return 1;
+	   if (character == 'O')
+		return 16;
+	   System.out.println(character);
+	   throw new AssertionError("Invalid Input");
 	}
 	
-  //Return Molecular Mass of a Compound
-	public static int molecularMass(String compound){
-		int total = 0, i = 0;
-		String number = "";
-		while(i < compound.length()){
-			if(compound.charAt(i) == 'C' || compound.charAt(i) == 'H' || compound.charAt(i) == 'O')
-				total += getMass(compound.charAt(i));
-			else if(compound.charAt(i) >= '0' && compound.charAt(i) <= '9')
-				total = total - getMass(compound.charAt(i-1)) + (int)compound.charAt(i) * getMass(compound.charAt(i-1));
-			else if(compound.charAt(i) == '('){
-				int temp = 0;
-				i++;
-				while(i < compound.length() && compound.charAt(i) != ')'){
-					if(compound.charAt(i) == 'C' || compound.charAt(i) == 'H' ||compound.charAt(i) == 'O')
-						temp += getMass(compound.charAt(i));
-					else if(i < compound.length() && compound.charAt(i) >= '0' && compound.charAt(i) <= '9')
-		        temp = temp - getMass(compound.charAt(i-1)) + (int)compound.charAt(i) * getMass(compound.charAt(i-1));
-					i++;
-				} 	
-				i++;
-				if(i < compound.length() && compound.charAt(i) >= '0' && compound.charAt(i) <= '9'){
-	        while(i  < compound.length() && (compound.charAt(i) >= '0' && compound.charAt(i) <= '9')){
-	      		number += compound.charAt(i);
-	      		i += 1;
+	//Return Molecular Mass of a Compound
+	public static int molecularMass(String compound) {  
+	    char[] charArray = compound.toCharArray();
+	    int result = 0;
+	    int index = 0;
+	    while(index < charArray.length){
+	    	if (charArray[index] == '('){
+	    	    int tempResult1 =  0;
+	    	    index += 1;
+	            while (index  < charArray.length && charArray[index] != ')'){
+	            	tempResult1 += getMass(charArray[index]);
+	                index += 1;    
+	                if((index)  < charArray.length && (charArray[index] >= '0' && charArray[index] <= '9') ){
+		           String number1 = "";
+		           while(index  < charArray.length && (charArray[index] >= '0' && charArray[index] <= '9')){
+		               number1 += charArray[index];
+		               index += 1;
+		           }
+		           index -= 1;
+		           tempResult1 = tempResult1 - getMass(charArray[index-1]) + getMass(charArray[index-1]) * (Integer.parseInt(number1));
+		           index++;  
+	                }
+	            }
+	            if((index + 1)  < charArray.length && (charArray[index + 1] >= '0' && charArray[index + 1] <= '9') ){
+	               String number1 = "";
+	               index += 1;
+	               while(index  < charArray.length && (charArray[index] >= '0' && charArray[index] <= '9')){
+	        	   number1 += charArray[index];
+	        	   index += 1;
+	               }
+	               index -= 1;
+	               tempResult1 *= (Integer.parseInt(number1));
+	            } 
+	            result += tempResult1;
 	        }
-	        if(number.length() != 0)
-	      		temp *= (Integer.parseInt(number));
-				 }        
-				 total += temp;
-			}
-		  i++;
-		}
-		return total;
+	        else{
+	            int tempResult2 = 0;
+	            tempResult2 +=  getMass(charArray[index]);
+	            if((index + 1)  < charArray.length && (charArray[index + 1] >= '0' && charArray[index + 1] <= '9') ){
+	               String number2 = "";
+	               index += 1;
+	               while(index  < charArray.length && (charArray[index] >= '0' && charArray[index] <= '9')){
+	        	   number2 += charArray[index];
+	                   index += 1;
+	               }
+	               index -= 1;
+	               tempResult2 *= (Integer.parseInt(number2));
+	            }
+	            result += tempResult2;
+	        }
+	    	index += 1;
+	    }   
+	    return result;
 	}
 	
-	public static void main(String args[]){
+	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Formula of Organic Compound : ");
-		String compound = sc.next().toUpperCase();
-		System.out.println("Molecular Mass of Compound is : " + molecularMass(compound));	
+		System.out.println("Enter Formula of an organic compound : ");
+		String compoundString = sc.next().toUpperCase();
+		System.out.println("Molecular Mass of a compound is : " + molecularMass(compoundString));
 	}
 }
