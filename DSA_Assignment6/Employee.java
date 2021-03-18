@@ -157,9 +157,8 @@ class LinkedList {
 			i++;
 		} 
 		Node endNode = employees.head;
-        while (endNode.next != null){
-        	endNode = endNode.next;
-        }
+                while (endNode.next != null)
+                	endNode = endNode.next;
 		employees.sort(employees.head, endNode);
 		System.out.println("Sorted List.");	
 		employees.traverse();
