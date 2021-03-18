@@ -4,7 +4,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
-
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook; 
 import org.apache.poi.ss.usermodel.Cell;  
@@ -36,15 +35,15 @@ class Counseling {
 	private void allocate(String[] studentQueue,String[][] studentPref){
 		for(String student : studentQueue){
 			int index = 0;
-				for(String prefrence:studentPref[index]){
-					int availableSeats = availableProg.get(prefrence);
-					if(availableSeats > 0){
-						allocated.put(student, prefrence);
-						availableProg.put(prefrence, availableSeats-1);
-						break;
-					}
-			    }
-			    index++;
+			for(String prefrence:studentPref[index]){
+				int availableSeats = availableProg.get(prefrence);
+				if(availableSeats > 0){
+					allocated.put(student, prefrence);
+					availableProg.put(prefrence, availableSeats-1);
+					break;
+				}
+			}
+		        index++;
 		}
 	}
 	
@@ -53,11 +52,11 @@ class Counseling {
 		for (int rowIndex = 0; rowIndex < availablePrograms ; rowIndex++) {
 			  Row row = collegeSheet.getRow(rowIndex+1);
 			  if (row != null) {
-			    Cell program = row.getCell(0);
-			    Cell seats = row.getCell(1);
-			    if (program != null && seats != null) {
-			    	availableProg.put(program.getStringCellValue(),(int)seats.getNumericCellValue());
-			    }
+		       	      Cell program = row.getCell(0);
+			      Cell seats = row.getCell(1);
+			      if (program != null && seats != null) {
+			    	 availableProg.put(program.getStringCellValue(),(int)seats.getNumericCellValue());
+			      }
 			  }
 		}
 	}
@@ -89,17 +88,16 @@ class Counseling {
 		String[] studentQueue = new String[totalStudents];
 		String[][] studentPref = new String[totalStudents][TOTAL_PROGRAM];
 		for (int rowIndex = 0; rowIndex < totalStudents-1 ; rowIndex++) {
-			
 			Row row = studentSheet.getRow(rowIndex+1);
 			 if (row != null) {
-			   Cell studentName = row.getCell(0);
-			   Cell pref = row.getCell(1);
-			   if (studentName != null && pref != null) {
-			     studentQueue[rowIndex] = studentName.getStringCellValue();
-			     studentPref[rowIndex] = pref.getStringCellValue().split(",");
-			   }
-			  }
-			}
+			     Cell studentName = row.getCell(0);
+			     Cell pref = row.getCell(1);
+			     if (studentName != null && pref != null) {
+			        studentQueue[rowIndex] = studentName.getStringCellValue();
+			        studentPref[rowIndex] = pref.getStringCellValue().split(",");
+			     }
+			 }
+		}
 		allocate(studentQueue,studentPref);		
 	}
 	
