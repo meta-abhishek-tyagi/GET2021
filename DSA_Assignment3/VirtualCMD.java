@@ -108,7 +108,8 @@ class VirtualCMD {
 	
 	//print the directory structure
 	void tree(Directory dir, int level){
-		for(Directory subDir : dir.subDirectories){
+		for(Directory subDir : dir.subDirectories)
+		{
 			printSpace(level);
 			System.out.println("|");
 			printSpace(level);
