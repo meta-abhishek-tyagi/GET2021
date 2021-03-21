@@ -9,39 +9,29 @@
  -- UPDATE `storefront`.`user` SET `Email`='hemendra.singh@metacube.com' WHERE `ID`='3';
  -- UPDATE `storefront`.`user` SET `Email`='pragyansh.pant@metacube.com' WHERE `ID`='4';
 CREATE VIEW Information AS 
-    SELECT 
-        product.ID AS 'ProductID',
-        product.Title AS 'Title',
-        product.Price,
-        CONCAT(FirstName, ' ', Lastname) as 'Shopper\'s Name',
-        user.Email,
-        DATE(orders.OrderTime) as 'Order Date',
-        order_detail.Status
-FROM 
-    user 
-        JOIN 
-    orders ON orders.UserID = user.ID 
-        JOIN 
-    order_detail ON orders.ID = order_detail.OrderID 
-        JOIN
-    product ON order_detail.ProductID = product.ID
-WHERE 
-    DATEDIFF(NOW(), orders.OrderTime) <= 60 
+SELECT 
+     product.ID AS 'ProductID',
+     product.Title AS 'Title',
+     product.Price,
+     CONCAT(FirstName, ' ', Lastname) as 'Shopper\'s Name',
+     user.Email,
+     DATE(orders.OrderTime) as 'Order Date',
+     order_detail.Status
+FROM  user 
+JOIN  orders ON orders.UserID = user.ID 
+JOIN  order_detail ON orders.ID = order_detail.OrderID 
+JOIN product ON order_detail.ProductID = product.ID
+WHERE  DATEDIFF(NOW(), orders.OrderTime) <= 60 
 ORDER BY orders.OrderTime DESC;
 
 # Use the above view to display the Products(Items) which are in ‘shipped’ state.
-SELECT 
-    *
-FROM
-    Information
-WHERE
-    Status = 'SHIPPED';
+SELECT *
+FROM Information
+WHERE Status = 'SHIPPED';
 
 # Use the above view to display the top 5 most selling products.
-SELECT 
-    `ProductID`, Title, COUNT(*) AS 'Sale Count'
-FROM
-    Information
+SELECT `ProductID`, Title, COUNT(*) AS 'Sale Count'
+FROM Information
 GROUP BY `ProductID`
 ORDER BY `Sale Count` DESC
 LIMIT 5;
