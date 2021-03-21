@@ -40,76 +40,39 @@ VALUES  ('1', '1', '4', 2, 1700, 'SHIPPED'),
 
 # Display Id, Title, Category Title, Price of the products which are Active
 # and recently added products should be at top.
-SELECT 
-    product.ID,
-    product.Title,
-    category.Title AS 'Category Title',
-    Price
-FROM
-    product
-        JOIN
-    category ON product.CategoryID = category.ID
-WHERE
-    Status = 'ACTIVE'
-ORDER BY TimeAdded DESC;
+SELECT product.ID, product.Title, category.Title AS 'Category Title', Price
+FROM product 
+JOIN category ON product.CategoryID = category.ID
+WHERE Status = 'ACTIVE' ORDER BY TimeAdded DESC;
 
 # Display the list of products which don't have any images.
-SELECT 
-    ID, Title, Description
-FROM
-    product
-WHERE
-    ID NOT IN (SELECT 
-        ProductId
-    FROM
-        image);
+SELECT ID, Title, Description
+FROM product 
+WHERE ID NOT IN (SELECT ProductId FROM image);
 
 # Display all Id, Title and Parent Category Title for all the Categories
 # listed, sorted by Parent Category Title and then Category Title.
 # (If Category is top category then Parent Category Title,
 # column should display “Top Category” as value).
-SELECT 
-    c1.ID,
-    c1.Title AS 'Category Title',
-    CASE
-        WHEN c1.ID = c2.ParentId THEN 'Top Category'
-        ELSE c2.Title
-    END AS 'Parent Category Title'
-FROM
-    category c1
-        JOIN
-    category c2 ON c1.ParentID = c2.ID
+SELECT c1.ID, c1.Title AS 'Category Title', CASE WHEN c1.ID = c2.ParentId THEN 'Top Category' ELSE c2.Title END AS 'Parent Category Title'
+FROM category c1 JOIN category c2 ON c1.ParentID = c2.ID 
 ORDER BY `Parent Category Title`,`Category Title`;
 
 # Display Id, Title, Parent Category Title of all the leaf Categories
 # (categories which are not parent of any other category)
-SELECT 
-    c1.ID, c1.Title, c2.Title AS 'Parent Category Title'
-FROM
-    category c1
-        JOIN
-    category c2 ON c1.ParentId = c2.ID
-WHERE
-    c1.ID NOT IN (SELECT 
-        ParentID
-    FROM
-        category);
+SELECT c1.ID, c1.Title, c2.Title AS 'Parent Category Title'
+FROM category c1 
+JOIN category c2 ON c1.ParentId = c2.ID
+WHERE c1.ID NOT IN (SELECT ParentID FROM category);
 
 # Display Product Title, Price & Description which falls into 
 # particular category Title (i.e. “Mobile”)
-SELECT 
-    product.Title AS 'Product Title', Price, Description
-FROM
-    product
-        JOIN
-    category ON product.CategoryID = category.ID
-WHERE
-    category.Title = 'Smart Phones';
+SELECT product.Title AS 'Product Title', Price, Description
+FROM product
+JOIN category ON product.CategoryID = category.ID
+WHERE category.Title = 'Smart Phones';
 
 # Display the list of Products whose Quantity on hand (Inventory) is under 50.
-SELECT 
-    ID, Title, Description
-FROM
-    product
-WHERE
-    Stock < 50;
+SELECT ID, Title, Description
+FROM product
+WHERE Stock < 50;
