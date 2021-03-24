@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="style.css" rel="stylesheet">
+        <title>Metacube Parking System</title>
+    </head>
+
+    <body>
+        <center>
+            <h1 style="color:teal">METACUBE PARKING SYSTEM</h1>
+        </center>
+
+        <!-- Navbar -->
+        <nav>
+                <a href="#add-employee" class="navItem">ADD EMPLOYEE</a>
+                <a href="#add-vehicle" class="navItem">ADD VEHICLE</a>
+                <a href="#give-feedback" class="navItem">GIVE FEEDBACK</a>
+                <a href="#pricing" class="navItem">PRICING</a>
+        </nav>
+        
+        <!-- Cover Image-->
+        <center>
+            <img class="cover" src="assets/parking.PNG" border=1px  />
+        </center>
+
+        <!--Add Employee Details-->
+        <div id="add-employee">
+            <center> 
+                <div class="collapsible">
+                    <h2>ADD EMPLOYEE</h2>
+                    <span class="show"></span>
+                </div>
+                <form name="add-employee" method="get" class="content">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Full Name</label>
+                            </td>
+                            <td>
+                                <input type="text" name="full-name" value="" placeholder="Enter your name" class="textInput" /><br />
+                            </td>
+                        </tr>
+                        <div>
+                        <tr>
+                            <td>
+                                <label>Gender</label>
+                            </td>
+                            <td>
+                                <input type="radio" checked="checked" name="gender" value="male" />Male
+                                <input type="radio" name="gender" value="female" />Female
+                            </td>
+                        </tr>
+                        </div>
+                        <tr>
+                            <td>
+                                <label>Email</label>
+                            </td>
+                            <td>
+                                <input type="email" name="email" value="" placeholder="Enter your email" class="textInput"/><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Password</label>
+                            </td>
+                            <td>
+                                <input type="password" name="password" value="" placeholder="Enter password" class="textInput"/><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Confrim Password</label>
+                            </td>
+                            <td>
+                                <input type="password" name="confirm-password" value="" placeholder="Re-Enter the password" class="textInput"/><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Contact Number</label>
+                            </td>
+                            <td>
+                                <input type="tel" name="contact-number" value="" placeholder="Enter contact number" class="textInput"/><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" name="button" value="Add Employee" class="submit"/>
+                            </td>
+                        </tr>   
+                    </table> 
+                </form>
+            </center>
+        </div> 
+
+        <!--Add Vehicle Details--> 
+        <div id="add-vehicle">
+            <center>
+                <div class="collapsible">
+                    <h2>ADD VEHICLE</h2>
+                    <span class="show"></span>
+                </div>
+                <form name="add-vehicle" method="get" class="content">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Company</label>
+                            </td>
+                            <td>
+                                <input type="text" name="vehicle-company" value="" placeholder="Enter vehicle company" class="textInput"/><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Model</label>
+                            </td>
+                            <td>
+                                <input type="number" name="vehicle-model" value="" placeholder="Enter vehicle model" class="textInput"/><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Type</label>
+                            </td>
+                            <td>
+                                <input type="text" name="vehicle-type" value="" placeholder="Enter vehicle type" class="textInput"/><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Number</label>
+                            </td>
+                            <td>
+                                <input type="number" name="vehicle-number" value="" placeholder="Enter vehicle number" class="textInput"/><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Employee Id</label>
+                            </td>
+                            <td>
+                                <input type="number" name="employee-id" value="" placeholder="Enter employee id" class="textInput"/><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Identification</label>
+                            </td>
+                            <td>
+                                <textarea rows="4" cols="22" placeholder="Identification" class="textInput"></textarea><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" name="button" value="Add Vehicle" class="submit"/>
+                            </td>
+                        </tr>   
+                    </table>
+                </form>
+            </center>
+        </div>
+
+        <!--Provide Feedback--> 
+        <div id="give-feedback">
+            <center>
+                <div class="collapsible">
+                    <h2>GIVE FEEDBACK</h2>
+                    <span class="show"></span>
+                </div>
+                <form name="give-feedback" method="get" class="content">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Full Name</label>
+                            </td>
+                            <td>
+                                <input type="text" name="full-name" value="" placeholder="Enter your name" class="textInput" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Email</label>
+                            </td>
+                            <td>
+                                <input type="text" name="email" value="" placeholder="Enter your email" class="textInput" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Subject</label>
+                            </td>
+                            <td>
+                                <input type="text" name="subject" value="" placeholder="Enter the Subject" class="textInput" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Message</label>
+                            </td>
+                            <td>
+                                <textarea rows="5" cols="22" placeholder="Message" class="textInput"></textarea><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" name="button" value="Send Feedback" class="submit" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </center>
+        </div>
+
+        <!--Pricing of Vehicle Parking-->
+        <center> 
+            <div class="collapsible">
+                <h2 class="sectionHeading">PRICING</h2>
+                <span class="show"></span>
+            </div>
+            <div class="content">
+                <div id="pricing" class="pricing">
+                    <div class="priceCard">
+                        <span class="vehicleType">Cycle</span><br /><br />
+                        <div class="circle">
+                            <p style="font-size: 10px;"><span class="bestPrice">$100</span><br />/Month</p>
+                        </div>
+                        <p class="allOffers">$5 daily<br />$100 Monthly<br />$500 yearly</p>
+                        <button type="submit">Purchase Now</button>
+                    </div>
+                    <div class="priceCard">
+                        <span class="vehicleType">MotorCycle</span><br /><br />
+                        <div class="circle">
+                            <p style="font-size: 10px;"><span class="bestPrice">$200</span><br />/Month</p>
+                        </div>
+                        <p class="allOffers">$10 daily<br />$200 Monthly<br />$1000 yearly</p>
+                        <button type="submit">Purchase Now</button>
+                    </div>
+                    <div class="priceCard">
+                        <span class="vehicleType">Four Wheelers</span><br /><br />
+                        <div class="circle">
+                            <p style="font-size: 10px;"><span class="bestPrice">$500</span><br />/Month</p>
+                        </div>
+                        <p class="allOffers">$20 daily<br />$500 Monthly<br />$3500 yearly</p>
+                        <button type="submit">Purchase Now</button>
+                    </div>
+                </div> 
+            </div> 
+        </center>
+    </body>
+    
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    </script> 
+</html>
