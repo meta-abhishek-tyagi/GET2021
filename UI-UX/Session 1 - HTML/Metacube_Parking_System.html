@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
-      <title> Metacube Parking System </title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Metacube Parking System</title>
     </head>
+
     <body>
+        <!--Heading>
         <center>
             <h1>Metacube Parking System</h1>
         </center>
@@ -20,71 +26,210 @@
         
         <!-- Cover Image-->
         <center>
-            <img alt="metacube parking image" src="assets/parking.PNG" width="650" height="450" border="5" />
+            <img src="assets/parking.PNG" width="1300" height="450" border="5" />
         </center>
 
-        <!--Add Employee Details--> 
-        <center> 
-            <h2><a name="add-employee">ADD EMPLOYEE</a></h2>
-            <form name="add-employee" method="get">
-                <input type="text" name="full-name" value="" placeholder="Enter your name" /><br />
-                Gender <input type="radio" checked="checked" name="gender" value="male" />Male
-                <input type="radio" name="gender" value="female" />Female<br />
-                <input type="email" name="email" value="" placeholder="Enter your email" /><br />
-                <input type="password" name="password" value="" placeholder="Enter password" /><br />
-                <input type="password" name="confirm-password" value="" placeholder="Re-Enter the password" /><br />
-                <input type="tel" name="contact-number" value="" placeholder="Enter contact number" /><br />
-                <input type="submit" name="button" value="Add Employee" />
-            </form>
-        </center>
+        <!--Add Employee Details-->
+        <div id="add-employee">
+            <center> 
+                <h2>ADD EMPLOYEE</h2>
+                <form name="add-employee" method="get">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Full Name</label>
+                            </td>
+                            <td>
+                                <input type="text" name="full-name" value="" placeholder="Enter your name" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Gender</label>
+                            </td>
+                            <td>
+                                <input type="radio" checked="checked" name="gender" value="male" />Male
+                                <input type="radio" name="gender" value="female" />Female<br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Email</label>
+                            </td>
+                            <td>
+                                <input type="email" name="email" value="" placeholder="Enter your email" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Password</label>
+                            </td>
+                            <td>
+                                <input type="password" name="password" value="" placeholder="Enter password" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Confrim Password</label>
+                            </td>
+                            <td>
+                                <input type="password" name="confirm-password" value="" placeholder="Re-Enter the password" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Contact Number</label>
+                            </td>
+                            <td>
+                                <input type="tel" name="contact-number" value="" placeholder="Enter contact number" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" name="button" value="Add Employee" />
+                            </td>
+                        </tr>   
+                    </table> 
+                </form>
+            </center>
+        </div> 
 
         <!--Add Vehicle Details--> 
-        <center>
-            <h2><a name="add-vehicle">ADD VEHICLE</a></h2>
-            <form name="add-vehicle" method="get">
-                <input type="text" name="vehicle-company" value="" placeholder="Enter vehicle company" /><br />
-                <input type="number" name="vehicle-model" value="" placeholder="Enter vehicle model" /><br />
-                <input type="text" name="vehicle-type" value="" placeholder="Enter vehicle type" /><br />
-                <input type="number" name="vehicle-number" value="" placeholder="Enter vehicle number" /><br />
-                <input type="number" name="employee-id" value="" placeholder="Enter employee id" /><br />
-                <textarea rows="4" cols="22" placeholder="Identification"></textarea><br />
-                <input type="submit" name="button" value="Add Vehicle" />
-            </form>
-        </center>
+        <div id="add-vehicle">
+            <center>
+                <h2>ADD VEHICLE</h2>
+                <form name="add-vehicle" method="get">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Company</label>
+                            </td>
+                            <td>
+                                <input type="text" name="vehicle-company" value="" placeholder="Enter vehicle company" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Model</label>
+                            </td>
+                            <td>
+                                <input type="number" name="vehicle-model" value="" placeholder="Enter vehicle model" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Type</label>
+                            </td>
+                            <td>
+                                <input type="text" name="vehicle-type" value="" placeholder="Enter vehicle type" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Number</label>
+                            </td>
+                            <td>
+                                <input type="number" name="vehicle-number" value="" placeholder="Enter vehicle number" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Employee Id</label>
+                            </td>
+                            <td>
+                                <input type="number" name="employee-id" value="" placeholder="Enter employee id" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Identification</label>
+                            </td>
+                            <td>
+                                <textarea rows="4" cols="22" placeholder="Identification"></textarea><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" name="button" value="Add Vehicle" />
+                            </td>
+                        </tr>   
+                    </table>
+                </form>
+            </center>
+        </div>
 
         <!--Provide Feedback--> 
-        <center>
-            <h2><a name="give-feedback">GIVE FEEDBACK</a></h2>
-            <form name="give-feedback" method="get">
-               <input type="text" name="full-name" value="" placeholder="Enter your name" /><br />
-               <input type="text" name="email" value="" placeholder="Email" /><br />
-               <input type="text" name="subject" value="" placeholder="Subject" /><br />
-               <textarea rows="5" cols="22" placeholder="Message"></textarea><br />
-               <input type="submit" name="button" value="Send Feedback" />
-            </form>
-        </center>
+        <div id="give-feedback">
+            <center>
+                <h2>GIVE FEEDBACK</h2>
+                <form name="give-feedback" method="get">
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Full Name</label>
+                            </td>
+                            <td>
+                                <input type="text" name="full-name" value="" placeholder="Enter your name" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Email</label>
+                            </td>
+                            <td>
+                                <input type="text" name="email" value="" placeholder="Enter your email" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Subject</label>
+                            </td>
+                            <td>
+                                <input type="text" name="subject" value="" placeholder="Enter the Subject" /><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Message</label>
+                            </td>
+                            <td>
+                                <textarea rows="5" cols="22" placeholder="Message"></textarea><br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" name="button" value="Send Feedback" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </center>
+        </div>
 
-        <!--Pricing of Vehicle Parking--> 
-        <center>
-            <h2><a name="pricing">PRICING</a></h2>
-            <h5>Cycle</h5>
-            <p>$100<br />/Month</p>
-            <p>$5 daily<br />$100 monthly<br />$500 yearly<br /></p>
-            <button type="submit">Purchase Now</button>
-        </center>
+        <!--Pricing of Vehicle Parking-->
+        <center> 
+            <div id="pricing">
+                <h2>PRICING</h2>
+                <div>
+                    <h5>Cycle</h5>
+                    <p>$100<br />/Month</p>
+                    <p>$5 daily<br />$100 monthly<br />$500 yearly<br /></p>
+                    <button type="submit">Purchase Now</button>
+                </div>   
 
-        <center>
-            <h5>MotorCycle</h5>
-            <p>$200<br />/Month</p>
-            <p>$10 daily<br />$200 monthly<br />$1000 yearly<br /></p>
-            <button type="submit">Purchase Now</button>
-        </center>
+                <div>
+                    <h5>MotorCycle</h5>
+                    <p>$200<br />/Month</p>
+                    <p>$10 daily<br />$200 monthly<br />$1000 yearly<br /></p>
+                    <button type="submit">Purchase Now</button>
+                </div>
 
-        <center>
-            <h5>Four Wheelers</h5>
-            <p>$500<br />/Month</p>
-            <p>$20 daily<br />$500 monthly<br />$3500 yearly<br /></p>
-            <button type="submit">Purchase Now</button>
+                <div>
+                    <h5>Four Wheelers</h5>
+                    <p>$500<br />/Month</p>
+                    <p>$20 daily<br />$500 monthly<br />$3500 yearly<br /></p>
+                    <button type="submit">Purchase Now</button>
+                </div>    
         </center>
     </body>
 </html>
