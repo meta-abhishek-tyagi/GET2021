@@ -94,15 +94,15 @@ class ViratKohli {
 	public static void main(String[] arg) {
 		Scanner sc=new Scanner(System.in);
 		System.out.print("Enter number of bowlers :");
-		int numberOfBowler=sc.nextInt();
+		int numberOfBowler = sc.nextInt();
 		ViratKohli viratKohli = new ViratKohli(numberOfBowler);
-		for(int i=1; i<=numberOfBowler; i++){
+		for(int i = 1; i <= numberOfBowler; i++){
 			System.out.print("Enter number of bowl left of bowler " + i + " : ");
 			int bowl = sc.nextInt();
 			viratKohli.insert(bowl);
 		}
-		System.out.println("The order of bowling according to their bowl left :");
+		System.out.println("The order of bowling according to their bowl left : ");
 		while(!viratKohli.isEmpty())
-	  	System.out.println("The bowler having bowl left :" + viratKohli.removeMaxHeap());
+	  	System.out.println("The bowler having bowl left : " + viratKohli.removeMaxHeap());
 	}
 }
