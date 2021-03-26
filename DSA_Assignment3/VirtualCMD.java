@@ -26,7 +26,7 @@ class VirtualCMD {
 	}
 	
 	//Run the command that user provide
-	void run(String command,String data){
+	void run(String command, String data){
 	  switch(command.toLowerCase()){
 		case "mkdir" :
 			mkdir(data);
@@ -52,7 +52,7 @@ class VirtualCMD {
 			System.out.println("Thanks for using VCMD");
 			System.exit(0);
 		default :
-			System.out.println("'" + command + "' is not recognized as an internal or external command, operable program or batch file.");
+			System.out.println("'" + command + "' is not recognized as an internal or external command, operable program or batch file. ");
 	  }
 	}
 	
@@ -70,7 +70,7 @@ class VirtualCMD {
 		}
 		Directory newDirectory = new Directory(folderName, currentDirectory);
 		if(isPresent(folderName, currentDirectory)){
-			System.out.println(folderName + " is already exist in the directory");
+			System.out.println(folderName + " is already exist in the directory ");
 			return;
 		}
 		if(currentDirectory == rootDirectory)
@@ -88,8 +88,6 @@ class VirtualCMD {
 	}
 
 	//return the array of the paths of all the matching folder name
-	//@param - folderName,currentDirectory ,array of all the folders the path that have been matched
-	//@param - currentPath that will be added to the array of it find the folder
 	ArrayList<String> find(String folderName, Directory currentDirectory, ArrayList<String> path, String currentPath){
 		if(currentDirectory.directoryName.contains(folderName)) 
 			path.add(currentPath);
@@ -102,27 +100,25 @@ class VirtualCMD {
 	void printSpace(int level){
 		if(level != 0)
 			System.out.print("|");
-		for(int space = level;space>0;space--)
+		for(int space = level; space > 0; space--)
 			System.out.print("\t");
 	}
 	
 	//print the directory structure
 	void tree(Directory dir, int level){
-		for(Directory subDir : dir.subDirectories)
-		{
+		for(Directory subDir : dir.subDirectories){
 			printSpace(level);
 			System.out.println("|");
 			printSpace(level);
 			System.out.println("|-----" + subDir.directoryName);
-			if(subDir.subDirectories.size()>0)
+			if(subDir.subDirectories.size() > 0)
 				tree(subDir, level+1);
 		}
 	}
 	
 	//change the directory
-	//@param - folderName in which you want to enter
 	void changeDir(String folderName){
-		for(Directory directory:currentDirectory.subDirectories){
+		for(Directory directory : currentDirectory.subDirectories){
 			if(directory.directoryName.compareTo(folderName) == 0){
 				currentPath.add(directory.directoryName);
 				currentDirectory = directory;
