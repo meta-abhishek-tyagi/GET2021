@@ -45,11 +45,9 @@ class Employees implements Comparable<Employees> {
 }
 
 class LinkedList {
-
 	class Node {
 		Employees employee;
 		Node next;
-
 		Node(Employees employee) {
 			this.employee = employee;
 			next = null;
@@ -145,9 +143,9 @@ class LinkedList {
 		LinkedList employees = new LinkedList();
 		Employees employee;
 		System.out.println("Enter Number of Employees : ");
-		int noOfEmployee=sc.nextInt();
+		int noOfEmployee = sc.nextInt();
 		sc.nextLine();
-		int i=0;
+		int i = 0;
 		while(noOfEmployee > 0){
 			System.out.println("\nEnter Detail of Employee " + (i+1) + "\n");
 			employee = insertEmployee();
