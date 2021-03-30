@@ -1,0 +1,315 @@
+body{
+    margin: 0;
+    background-image: url("./asset/images/bodybg.png");
+    background-repeat: repeat-y;
+    font-family: 'Ubuntu', sans-serif;
+}
+.text-style{
+    font-family: 'Ubuntu', sans-serif;
+}
+.home-image{
+  background-image: url("./asset/images/homebg.png");
+  background-color: white;
+  height: 1000px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.nav-bar{
+    height: 100px;
+}
+.justify-content-even{
+    display: flex;
+    justify-content: space-evenly;
+}
+.justify-content-between{
+    display: flex;
+    justify-content: space-between;
+}
+.text-center{
+    text-align: center;
+}
+.text-muted{
+    color: grey;
+}
+.Logo-title{
+    color: white;
+    width: 15%;
+    text-align: center;
+    margin-left: 50px;
+    float: left;
+}
+.nav-bar-middle{
+    margin-left: 200px;
+    padding-top: 25px;
+    float: left;
+    width: 30%;
+}
+.nav-bar-middle div a{
+    padding: 0 5px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+.nav-bar-icon{
+    padding-top: 25px;
+    color: white;
+    margin-right: 100px;
+    float: right;
+    width: 10%;
+}
+
+/* home immage text */
+.home-image-text{
+    width:35%;
+    padding-left: 100px;
+    padding-top: 60px;
+    height: 300px;
+    float:left;
+    margin-left: 20px;
+}
+.home-image-text h2{
+    font-size: 55px;
+    color: white;
+}
+.button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+.button2 {
+    background-color: #4466c9;
+} 
+.button3 {
+    background-color: #fc6a42;
+}
+.home-image-image{
+    width:40%;
+    margin-left: 20px;
+    float: left;
+    padding-top: 50px;
+    height:800px;
+}
+
+/* perfect feature section */
+.perfect-feature{
+    height: 1200px;
+    padding-top: 100px;
+}
+.perfect-feature h1{
+    margin:0;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #008ae6;
+}
+.perfect-feature-p{
+    font-size: 16px;
+}
+.perfect-feature-flex{
+    display: flex;
+    padding-top: 100px;
+    padding-left: 20px;
+}
+.perfect-feature-flex div{
+    width: 400px;
+}
+.perfect-feature-icon{
+    width:50%;
+}
+.perfect-feature-icon img{
+    float: right;
+    padding-right: 20px;
+}
+.perfect-feature-text{
+    width:50%;
+}
+.flex{
+    display: flex;
+}
+.slider{
+    height: 700px;
+    margin-left: 12%; 
+    margin-right: 4%;
+    display: block;
+}
+.slider img {
+    margin-right: 40px;
+    padding-top: 80px;
+}
+
+/* Screenshot Section */
+.screenshot{
+    height: 3250px;
+}
+.screenshot h1{
+    margin:0;
+    margin-top: 20px;
+    color: #008ae6;
+}
+.screenshot-p{
+    font-size: 16px;   
+}
+.screenshot-image{
+    width: 50%;
+    height: 770px;
+    padding: 40px;
+}
+.screenshot-image img{
+    float: right;
+    padding-top: 100px;
+    padding-right: 70px;
+}
+.screenshot-text{
+    width: 50%;
+    height: 600px;
+    padding-top: 250px;
+}
+.screenshot-text h1{
+    color: black;
+}
+.screenshot-text p{
+    font-size: 20px;
+    padding-right: 230px;
+}
+.screenshot-image-opposite{
+    width: 50%;
+    height: 770px;
+    padding: 40px;
+}
+.screenshot-image-opposite img{
+    float: left;
+    padding-top: 100px;
+    padding-left: 70px;
+}
+.screenshot-text-opposite{
+    width: 50%;
+    height: 600px;
+    padding-top: 250px;
+}
+.screenshot-text-opposite h1{
+    padding-left: 230px;
+    color: black;
+}
+.screenshot-text-opposite img{
+    padding-left: 230px;
+}
+.screenshot-text-opposite p{
+    font-size: 20px;
+    padding-left: 230px;
+}
+
+/* Reviews section */
+.reviews{
+    height: 550px;
+}
+.reviews h1{
+    margin:0;
+    margin-top: 20px;
+    color: #008ae6;
+}
+.reviews-p{
+    font-size: 16px;   
+}
+.reviews .flex{
+    padding-top: 50px;
+}
+.reviews-flex-div-left{
+    width: 35%;
+    height:150px;
+    margin-left: 150px;
+}
+.reviews-flex-div-left h2{
+    margin-bottom: 5px;
+}
+.reviews-flex-div-left p{
+    font-size: 20px;
+    margin: 0;
+}
+.reviews-flex-div-left p i{
+    float: right;
+}
+.reviews-flex-div-right{
+    width: 35%;
+    height:150px;
+    margin-left: 100px;
+}
+.reviews-flex-div-right h2{
+    margin-bottom: 5px;
+}
+.reviews-flex-div-right p{
+    font-size: 20px;
+    margin: 0;
+}
+.reviews-flex-div-right p i{
+    float: right;
+}
+
+/* Download Section */
+.download{
+    height:420px;
+    background-color:#4466c9 ;
+}
+.download-text{
+    height:420px;
+    width: 35%;
+    margin-left: 140px;
+}
+.download-text h1{
+    padding-top: 70px;
+    font-size: 36px;
+    color: white;
+}
+.download-text p{
+    padding-right: 180px;
+    font-size: 20px;
+    color: white;
+}
+.download-text .flex img{
+    padding-top: 30px;
+    padding-right: 20px;
+}
+.download-image{
+    height: 420px;
+    width: 45%;
+}
+.download-image img{
+    padding-top: 82px;
+    padding-left: 40px;
+}
+
+/* Footer section */
+.footer{
+    height: 180px;
+    background-color:  #33334d;
+}
+.footer .nav-bar{
+    height: 70px;
+}
+.footer p{
+    margin-top: 60px;
+}
+.footer .nav-bar .Logo-title img{
+    padding-top: 20px;
+    padding-left: 120px;
+}
+.footer .nav-bar .nav-bar-middle div{
+    color: grey;
+}
+.footer .nav-bar .nav-bar-icon{
+    color: grey;
+}
+.hr-grey{
+    border: 1px solid #47476b;
+    width: 60%;
+    text-align: center;
+}
